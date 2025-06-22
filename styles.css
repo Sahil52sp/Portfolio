@@ -1,0 +1,544 @@
+@font-face {
+  font-family: "CustomFont";
+  src: url("Fonts/BrittanySignature.ttf") format("truetype"),
+    url("Fonts/Blackboard.ttf") format("truetype"),
+    url("Fonts/Poppins-Light.ttf") format("truetype"),
+    url("Fonts/Poppins-Medium.ttf") format("truetype"),
+    url("Fonts/Poppins-Regular.ttf") format("truetype");
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("Fonts/FiraCode.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Inter font is now loaded via Google Fonts in HTML */
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-image: url("images/Backgroundnew.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: #0c0c0c;
+  margin: 24px 180px 12px 180px;
+}
+
+.Floating-Nav {
+  position: fixed;
+  top: 24px;
+  width: calc(100% - 360px);
+  left: 180px;
+  padding: 20px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(19, 19, 19, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  opacity: 0;
+  animation: fadeDownUp 1.5s forwards;
+  animation-delay: 0.2s;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+@keyframes fadeDownUp {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Floating-Nav p {
+  letter-spacing: 1px;
+  margin: 0;
+  font-weight: 400;
+  color: #ffffff;
+  font-family: "Fira Code", sans-serif;
+  font-size: 16px;
+}
+
+.Floating-Nav ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+.Floating-Nav li {
+  font-family: "Inter", "Poppins Light", sans-serif;
+  font-size: 14px;
+  color: #979797;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.Floating-Nav li:hover {
+  color: #ffffff;
+}
+
+/* MAIN SECTION */
+
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 200px 20px 100px 20px;
+  color: #ffffff;
+}
+
+.hero-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+}
+
+.hero-side-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 450px;
+  gap: 20px;
+}
+
+.side-svg {
+  width: 80px;
+  height: 80px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.3s ease;
+}
+
+.side-svg:hover {
+  transform: scale(1.1) translateY(0);
+}
+
+/* Staggered animation delays and scattered positioning for each SVG */
+.hero-side-container:first-child .side-svg:nth-child(1) {
+  animation: fadeInUpSvg1 0.8s forwards, floatUpDown1 3s ease-in-out infinite;
+  animation-delay: 2s, 2.8s;
+  transform: translateY(50px) translateX(-20px);
+  margin-top: 0px;
+}
+
+.hero-side-container:first-child .side-svg:nth-child(2) {
+  animation: fadeInUpSvg2 0.8s forwards, floatUpDown2 3s ease-in-out infinite;
+  animation-delay: 2.2s, 3.2s;
+  transform: translateY(50px) translateX(25px);
+  margin-top: 0px;
+}
+
+.hero-side-container:last-child .side-svg:nth-child(1) {
+  animation: fadeInUpSvg3 0.8s forwards, floatUpDown3 3s ease-in-out infinite;
+  animation-delay: 2.4s, 3.6s;
+  transform: translateY(50px) translateX(-30px);
+  margin-top: 0px;
+}
+
+.hero-side-container:last-child .side-svg:nth-child(2) {
+  animation: fadeInUpSvg4 0.8s forwards, floatUpDown4 3s ease-in-out infinite;
+  animation-delay: 2.6s, 4s;
+  transform: translateY(50px) translateX(15px);
+  margin-top: 0px;
+}
+
+/* Individual slide-up animations for each scattered SVG */
+@keyframes fadeInUpSvg1 {
+  from {
+    opacity: 0;
+    transform: translateY(50px) translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-20px);
+  }
+}
+
+@keyframes fadeInUpSvg2 {
+  from {
+    opacity: 0;
+    transform: translateY(50px) translateX(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(25px);
+  }
+}
+
+@keyframes fadeInUpSvg3 {
+  from {
+    opacity: 0;
+    transform: translateY(50px) translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(20px);
+  }
+}
+
+@keyframes fadeInUpSvg4 {
+  from {
+    opacity: 0;
+    transform: translateY(50px) translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-15px);
+  }
+}
+
+/* Individual floating animations for scattered positioning */
+@keyframes floatUpDown1 {
+  0%,
+  100% {
+    transform: translateX(-20px) translateY(0);
+  }
+  50% {
+    transform: translateX(-20px) translateY(-8px);
+  }
+}
+
+@keyframes floatUpDown2 {
+  0%,
+  100% {
+    transform: translateX(25px) translateY(0);
+  }
+  50% {
+    transform: translateX(25px) translateY(-8px);
+  }
+}
+
+@keyframes floatUpDown3 {
+  0%,
+  100% {
+    transform: translateX(20px) translateY(0);
+  }
+  50% {
+    transform: translateX(20px) translateY(-8px);
+  }
+}
+
+@keyframes floatUpDown4 {
+  0%,
+  100% {
+    transform: translateX(-15px) translateY(0);
+  }
+  50% {
+    transform: translateX(-15px) translateY(-8px);
+  }
+}
+
+.hero-label {
+  border: 1px solid #383838;
+  width: fit-content;
+  padding: 12px 16px;
+  margin: 120px 0px 60px 0px;
+  border-radius: 8px;
+  opacity: 0;
+  filter: blur(5px);
+  animation: fadeInUp 0.5s forwards;
+  animation-delay: 1.5s;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.02),
+    0 0 20px rgba(255, 255, 255, 0.05), 0 0 30px rgba(255, 255, 255, 0.025);
+}
+
+.hero-label p {
+  font-size: 12px;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: 1px;
+  font-family: "Fira Code", sans-serif;
+}
+
+.main-heading {
+  font-size: 80px;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -2px;
+  font-family: "Inter", "Poppins Light", sans-serif;
+  opacity: 0;
+  filter: blur(5px);
+  animation: fadeInUp 1.5s forwards;
+  animation-delay: 0.6s;
+  margin-bottom: 6px;
+}
+
+.main-heading-test {
+  font-size: 28px;
+  font-weight: 300 !important;
+  margin: 0;
+  letter-spacing: 0px;
+  font-family: "Inter", "Poppins Light", sans-serif;
+  opacity: 0;
+  filter: blur(5px);
+  animation: fadeInUp 1.5s forwards;
+  animation-delay: 0.6s;
+  margin-bottom: 6px;
+}
+
+.highlight {
+  font-family: "Fira Code", sans-serif;
+  font-weight: 300 !important;
+  font-size: 15px;
+  border: 1px solid #dcd6283a;
+  color: #d2d2d2;
+  padding: 0px 6px;
+  border-radius: 4px;
+  letter-spacing: -1px;
+}
+
+.sub-heading-test {
+  font-size: 18px;
+  font-weight: 300 !important;
+  margin: 0;
+  letter-spacing: 0px;
+  line-height: 1.5;
+  font-family: "Inter", "Poppins Light", sans-serif;
+  opacity: 0;
+  filter: blur(5px);
+  animation: fadeInUp 1.5s forwards;
+  animation-delay: 0.8s;
+  color: #ababab;
+}
+
+.sub-heading {
+  font-size: 18px;
+  color: #818181;
+  font-weight: 300;
+  margin: 20px 0 0;
+  letter-spacing: 10px;
+  font-family: "Inter", "Poppins Light", sans-serif;
+  opacity: 0;
+  filter: blur(5px);
+  animation: fadeInUp 1.5s forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}
+
+/* WIDGETS SECTION */
+
+.Widgets {
+  padding: 60px 20px;
+  margin-bottom: 100px;
+}
+
+.widget-heading {
+  font-size: 20px;
+  margin: 20px 0px 40px 0px;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: -1px;
+  font-family: "Inter", "Poppins Light", sans-serif;
+  opacity: 0;
+  filter: blur(5px);
+  transition: all 1.5s ease;
+}
+
+.widget-heading.animate {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+.widget-container {
+  display: flex;
+  gap: 24px;
+  max-width: 1400px;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+}
+
+.widget-card {
+  background: linear-gradient(
+      135deg,
+      rgba(27, 27, 27, 0.1) 0%,
+      rgba(180, 180, 180, 0.05) 50%,
+      rgba(24, 24, 24, 0.02) 100%
+    ),
+    rgba(21, 21, 21, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  width: 340px;
+  height: 380px;
+  flex-shrink: 0;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(30px);
+}
+
+.widget-card.animate {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+  transition: all 0.8s ease;
+}
+
+.widget-card.animate:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.widget-card.animate:nth-child(2) {
+  transition-delay: 0.3s;
+}
+
+.widget-card.animate:nth-child(3) {
+  transition-delay: 0.5s;
+}
+
+.widget-image {
+  height: 60%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 25px;
+  margin-top: 20px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.widget-image img {
+  transition: opacity 0.3s ease;
+  position: absolute;
+  width: max-content;
+}
+
+.widget-image .top-image {
+  z-index: 6;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.6s ease;
+}
+
+.widget-image .bottom-image {
+  z-index: 1;
+  transform: translateY(16px);
+  width: 340px;
+  max-width: none;
+  height: auto;
+  opacity: 1;
+}
+
+.widget-card:hover .widget-image .top-image {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.widget-card:hover .widget-image .bottom-image {
+  opacity: 1;
+}
+
+.widget-text-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.widget-text {
+  color: #ffffff;
+  font-family: "Inter", "Poppins Light", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 0.5px;
+  padding: 0px 24px 20px 24px;
+}
+
+.widget-text-container img {
+  width: 24px;
+  height: 24px;
+  padding: 0px 24px 20px 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-wrapper {
+    flex-direction: column;
+    align-items: s;
+    gap: 40px;
+  }
+
+  .hero-side-container {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+  }
+  .hero-side-container img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .side-svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .widget-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .widget-card {
+    width: 90%;
+    max-width: 300px;
+  }
+}
